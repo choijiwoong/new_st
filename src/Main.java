@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-//막
+//막 좀더 뭐라고
 class Japengi{
     HashMap<String, Integer> priceMap=new HashMap<>();
     HashMap<String, Integer> countMap=new HashMap<>();
