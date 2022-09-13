@@ -135,10 +135,10 @@ public class Main {
                     continue;
 
                 person.getCharge(charge);//입력받은 아이템이름이 존재한다면 물품 구매 후 거스름돈을 반환하고, 해당 돈을 사람에게 돌려준다.
-                return;
+                continue;
             }
             if(isOrder.equals("no") || isOrder.equals("No")){
-                return ;
+                return;
             }
             System.out.println("옳지 않은 입력입니다!");
         }
