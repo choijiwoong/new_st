@@ -93,11 +93,11 @@ public class Main {
     }
     public static void main(String[] args) {
         //기본세팅들
-        Japengi obj = new Japengi();//자판기 객체 생성 및 아이템 추가
-        obj.addItem("Coke", 2000, 3);
-        obj.addItem("Pepsi", 1800, 10);
-        obj.addItem("Coffee", 2800, 7);
-        obj.addItem("Water", 800, 23);
+        Japengi vendingMachine = new Japengi();//자판기 객체 생성 및 아이템 추가
+        vendingMachine.addItem("Coke", 2000, 3);
+        vendingMachine.addItem("Pepsi", 1800, 10);
+        vendingMachine.addItem("Coffee", 2800, 7);
+        vendingMachine.addItem("Water", 800, 23);
 
         Saram person=new Saram();//사람 객체 생성 및 보유재산 입력
         System.out.println("초기 보유자산을 입력해주세요!");
@@ -124,22 +124,23 @@ public class Main {
                 }
                 if(money==-1)//person.pay에서 입력받은 인자가 보유재산보다 큰 경우 -1을 반환하게 하였다.
                     continue;
-                obj.inputMoney(money);//위의 예외처리과정을 거쳐 문자가 아니고 보유재산보다 적은 수인 money값을 자판기에 넣는다.
-                obj.showInputMoney();//자판기는 입력받은 돈을 출력한다.
+                vendingMachine.inputMoney(money);//위의 예외처리과정을 거쳐 문자가 아니고 보유재산보다 적은 수인 money값을 자판기에 넣는다.
+                vendingMachine.showInputMoney();//자판기는 입력받은 돈을 출력한다.
 
                 System.out.println("어떤 아이템을 선택하시겠나요? 구매할 아이템의 이름을 입력해주세요");
-                obj.printItems();//자판기의 가격 딕셔너리를 출력하여 사용자가 아이템목록과 가격을 확인할 수 있게 한다.
+                vendingMachine.printItems();//자판기의 가격 딕셔너리를 출력하여 사용자가 아이템목록과 가격을 확인할 수 있게 한다.
 
-                Integer charge=obj.purchase(input());
+                Integer charge=vendingMachine.purchase(input());
                 if(charge==-1)//입력받은 돈으로 자판기 물품 구매가 싪패했을 경우
                     continue;
 
                 person.getCharge(charge);//입력받은 아이템이름이 존재한다면 물품 구매 후 거스름돈을 반환하고, 해당 돈을 사람에게 돌려준다.
-            } else if(isOrder.equals("no") || isOrder.equals("No")){
-                return ;
-            } else{
-                System.out.println("옳지 않은 입력입니다");
+                return;
             }
+            if(isOrder.equals("no") || isOrder.equals("No")){
+                return ;
+            }
+            System.out.println("옳지 않은 입력입니다!");
         }
     }
 }
